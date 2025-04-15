@@ -2,7 +2,7 @@
 
 # Tests if the card is NVIDIA, if so, uses the value of the variables
 lspci | grep -qi "vga.*nvidia" && {
-   export GSK_RENDERER=ngl
+   export GSK_RENDERER=cairo
    export GDK_DISABLE=vulkan
    export GDK_GL_DISABLE=buffer-storage
 }
