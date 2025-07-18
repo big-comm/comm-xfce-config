@@ -60,17 +60,36 @@ text/x-subviewer=org.x.editor.desktop
 text/x-ssa=org.x.editor.desktop
 text/x-setext=org.x.editor.desktop
 
-# Video (VLC)
-video/mp4=vlc.desktop
-video/x-matroska=vlc.desktop
-video/quicktime=vlc.desktop
-video/x-msvideo=vlc.desktop
-video/ogg=vlc.desktop
-video/webm=vlc.desktop
-video/3gpp=vlc.desktop
-video/mpeg=vlc.desktop
-video/x-flv=vlc.desktop
-video/mp2t=vlc.desktop
+# Video (Celluloid)
+video/mp4=io.github.celluloid_player.Celluloid.desktop
+video/x-matroska=io.github.celluloid_player.Celluloid.desktop
+video/quicktime=io.github.celluloid_player.Celluloid.desktop
+video/x-msvideo=io.github.celluloid_player.Celluloid.desktop
+video/ogg=io.github.celluloid_player.Celluloid.desktop
+video/ogv=io.github.celluloid_player.Celluloid.desktop
+video/webm=io.github.celluloid_player.Celluloid.desktop
+video/3gpp=io.github.celluloid_player.Celluloid.desktop
+video/mpeg=io.github.celluloid_player.Celluloid.desktop
+video/x-flv=io.github.celluloid_player.Celluloid.desktop
+video/mp2t=io.github.celluloid_player.Celluloid.desktop
+video/x-ms-wmv=io.github.celluloid_player.Celluloid.desktop
+video/x-msvideo=io.github.celluloid_player.Celluloid.desktop
+
+# Audio (Celluloid)
+audio/mpeg=io.github.celluloid_player.Celluloid.desktop
+audio/mp3=io.github.celluloid_player.Celluloid.desktop
+audio/mp4=io.github.celluloid_player.Celluloid.desktop
+audio/aac=io.github.celluloid_player.Celluloid.desktop
+audio/ogg=io.github.celluloid_player.Celluloid.desktop
+audio/vorbis=io.github.celluloid_player.Celluloid.desktop
+audio/x-vorbis+ogg=io.github.celluloid_player.Celluloid.desktop
+audio/flac=io.github.celluloid_player.Celluloid.desktop
+audio/x-flac=io.github.celluloid_player.Celluloid.desktop
+audio/wav=io.github.celluloid_player.Celluloid.desktop
+audio/x-wav=io.github.celluloid_player.Celluloid.desktop
+audio/webm=io.github.celluloid_player.Celluloid.desktop
+audio/x-ms-wma=io.github.celluloid_player.Celluloid.desktop
+audio/x-matroska=io.github.celluloid_player.Celluloid.desktop
 
 # PDF and Documents
 application/pdf=org.gnome.Papers.desktop
@@ -254,16 +273,32 @@ text/x-svhdr=xed.desktop;
 text/x-subviewer=xed.desktop;org.x.editor.desktop;
 text/x-ssa=xed.desktop;org.x.editor.desktop;
 text/x-setext=xed.desktop;org.x.editor.desktop;
-video/mp4=vlc.desktop;
-video/x-matroska=vlc.desktop;
-video/quicktime=vlc.desktop;
-video/x-msvideo=vlc.desktop;
-video/ogg=vlc.desktop;
-video/webm=vlc.desktop;
-video/3gpp=vlc.desktop;
-video/mpeg=vlc.desktop;
-video/x-flv=vlc.desktop;
-video/mp2t=vlc.desktop;
+video/mp4=io.github.celluloid_player.Celluloid.desktop;
+video/x-matroska=io.github.celluloid_player.Celluloid.desktop;
+video/quicktime=io.github.celluloid_player.Celluloid.desktop;
+video/x-msvideo=io.github.celluloid_player.Celluloid.desktop;
+video/ogg=io.github.celluloid_player.Celluloid.desktop;
+video/ogv=io.github.celluloid_player.Celluloid.desktop;
+video/webm=io.github.celluloid_player.Celluloid.desktop;
+video/3gpp=io.github.celluloid_player.Celluloid.desktop;
+video/mpeg=io.github.celluloid_player.Celluloid.desktop;
+video/x-flv=io.github.celluloid_player.Celluloid.desktop;
+video/mp2t=io.github.celluloid_player.Celluloid.desktop;
+video/x-ms-wmv=io.github.celluloid_player.Celluloid.desktop;
+audio/mpeg=io.github.celluloid_player.Celluloid.desktop;
+audio/mp3=io.github.celluloid_player.Celluloid.desktop;
+audio/mp4=io.github.celluloid_player.Celluloid.desktop;
+audio/aac=io.github.celluloid_player.Celluloid.desktop;
+audio/ogg=io.github.celluloid_player.Celluloid.desktop;
+audio/vorbis=io.github.celluloid_player.Celluloid.desktop;
+audio/x-vorbis+ogg=io.github.celluloid_player.Celluloid.desktop;
+audio/flac=io.github.celluloid_player.Celluloid.desktop;
+audio/x-flac=io.github.celluloid_player.Celluloid.desktop;
+audio/wav=io.github.celluloid_player.Celluloid.desktop;
+audio/x-wav=io.github.celluloid_player.Celluloid.desktop;
+audio/webm=io.github.celluloid_player.Celluloid.desktop;
+audio/x-ms-wma=io.github.celluloid_player.Celluloid.desktop;
+audio/x-matroska=io.github.celluloid_player.Celluloid.desktop;
 
 # PDF and Documents
 application/pdf=org.gnome.Papers.desktop;
