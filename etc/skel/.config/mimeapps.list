@@ -13,10 +13,10 @@ application/xhtml+xml=brave-browser.desktop
 application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
 
-# XML files (Xed)
-application/xml=xed.desktop
-text/xml=xed.desktop
-application/xml-dtd=xed.desktop
+# XML files (Editor padrão)
+application/xml=org.x.editor.desktop
+text/xml=org.x.editor.desktop
+application/xml-dtd=org.x.editor.desktop
 
 # Images (PIX)
 image/apng=pix.desktop
@@ -35,14 +35,14 @@ image/x-pentax-pef=pix.desktop
 image/svg+xml=pix.desktop
 image/svg+xml-compressed=pix.desktop
 
-# Texts (Xed)
+# Texts (Editor padrão)
 text/plain=org.x.editor.desktop
 text/x-todo-txt=org.x.editor.desktop
 text/x-txt2tags=org.x.editor.desktop
 text/x-vhdl=org.x.editor.desktop
 text/x-verilog=org.x.editor.desktop
 text/x-vb=org.x.editor.desktop
-text/x-vala=xed.desktop
+text/x-vala=org.x.editor.desktop
 text/x-uuencode=org.x.editor.desktop
 text/x-uri=org.x.editor.desktop
 text/x-uil=org.x.editor.desktop
@@ -52,13 +52,19 @@ text/x-troff-ms=org.x.editor.desktop
 text/x-troff-mm=org.x.editor.desktop
 text/x-troff-me=org.x.editor.desktop
 text/x-texinfo=org.x.editor.desktop
-text/x-tex=xed.desktop
+text/x-tex=org.x.editor.desktop
 text/x-systemd-unit=org.x.editor.desktop
-text/x-svsrc=xed.desktop
-text/x-svhdr=xed.desktop
+text/x-svsrc=org.x.editor.desktop
+text/x-svhdr=org.x.editor.desktop
 text/x-subviewer=org.x.editor.desktop
 text/x-ssa=org.x.editor.desktop
 text/x-setext=org.x.editor.desktop
+
+# Configuration files (Editor padrão)
+application/x-config=org.x.editor.desktop
+text/x-config=org.x.editor.desktop
+application/x-desktop=org.x.editor.desktop
+text/x-ini=org.x.editor.desktop
 
 # Video (Celluloid)
 video/mp4=io.github.celluloid_player.Celluloid.desktop
@@ -228,9 +234,9 @@ application/x-extension-xhtml=brave-browser.desktop
 application/x-extension-xht=brave-browser.desktop
 
 # XML files
-application/xml=xed.desktop;
-text/xml=xed.desktop;
-application/xml-dtd=xed.desktop;
+application/xml=org.x.editor.desktop;
+text/xml=org.x.editor.desktop;
+application/xml-dtd=org.x.editor.desktop;
 
 # Images
 image/apng=pix.desktop;
@@ -250,29 +256,35 @@ image/svg+xml=pix.desktop;
 image/svg+xml-compressed=pix.desktop;
 
 # Texts
-text/plain=xed.desktop;org.x.editor.desktop;
-text/x-todo-txt=xed.desktop;org.x.editor.desktop;
-text/x-txt2tags=xed.desktop;org.x.editor.desktop;
-text/x-vhdl=xed.desktop;org.x.editor.desktop;
-text/x-verilog=xed.desktop;org.x.editor.desktop;
-text/x-vb=xed.desktop;org.x.editor.desktop;
-text/x-vala=xed.desktop;
-text/x-uuencode=xed.desktop;org.x.editor.desktop;
-text/x-uri=xed.desktop;org.x.editor.desktop;
-text/x-uil=xed.desktop;org.x.editor.desktop;
-text/x-typst=xed.desktop;org.x.editor.desktop;
-text/x-twig=xed.desktop;org.x.editor.desktop;
-text/x-troff-ms=xed.desktop;org.x.editor.desktop;
-text/x-troff-mm=xed.desktop;org.x.editor.desktop;
-text/x-troff-me=xed.desktop;org.x.editor.desktop;
-text/x-texinfo=xed.desktop;org.x.editor.desktop;
-text/x-tex=xed.desktop;
-text/x-systemd-unit=xed.desktop;org.x.editor.desktop;
-text/x-svsrc=xed.desktop;
-text/x-svhdr=xed.desktop;
-text/x-subviewer=xed.desktop;org.x.editor.desktop;
-text/x-ssa=xed.desktop;org.x.editor.desktop;
-text/x-setext=xed.desktop;org.x.editor.desktop;
+text/plain=org.x.editor.desktop;
+text/x-todo-txt=org.x.editor.desktop;
+text/x-txt2tags=org.x.editor.desktop;
+text/x-vhdl=org.x.editor.desktop;
+text/x-verilog=org.x.editor.desktop;
+text/x-vb=org.x.editor.desktop;
+text/x-vala=org.x.editor.desktop;
+text/x-uuencode=org.x.editor.desktop;
+text/x-uri=org.x.editor.desktop;
+text/x-uil=org.x.editor.desktop;
+text/x-typst=org.x.editor.desktop;
+text/x-twig=org.x.editor.desktop;
+text/x-troff-ms=org.x.editor.desktop;
+text/x-troff-mm=org.x.editor.desktop;
+text/x-troff-me=org.x.editor.desktop;
+text/x-texinfo=org.x.editor.desktop;
+text/x-tex=org.x.editor.desktop;
+text/x-systemd-unit=org.x.editor.desktop;
+text/x-svsrc=org.x.editor.desktop;
+text/x-svhdr=org.x.editor.desktop;
+text/x-subviewer=org.x.editor.desktop;
+text/x-ssa=org.x.editor.desktop;
+text/x-setext=org.x.editor.desktop;
+
+# Configuration files
+application/x-config=org.x.editor.desktop;
+text/x-config=org.x.editor.desktop;
+application/x-desktop=org.x.editor.desktop;
+text/x-ini=org.x.editor.desktop;
 video/mp4=io.github.celluloid_player.Celluloid.desktop;
 video/x-matroska=io.github.celluloid_player.Celluloid.desktop;
 video/quicktime=io.github.celluloid_player.Celluloid.desktop;
