@@ -1,0 +1,219 @@
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/shell/extensions/dash-to-dock/'
+saved-view='/org/gnome/shell/extensions/dash-to-dock/'
+window-height=543
+window-is-maximized=false
+window-width=963
+
+[com/gexperts/Tilix]
+quake-specific-monitor=0
+
+[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-transparency-percent=12
+visible-name='Default'
+
+[com/github/amezin/ddterm]
+background-opacity=0.80000000000000004
+custom-font='Monospace 11'
+palette=['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(51,218,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']
+use-system-font=false
+window-maximize=false
+window-size=0.59999999999999998
+
+[com/raggesilver/BlackBox]
+style-preference=uint32 0
+window-height=uint32 516
+window-width=uint32 879
+
+[de/haeckerfelix/Fragments]
+client-last-connection='00000000-0000-0000-0000-000000000000'
+window-height=700
+window-width=900
+
+[io/github/celluloid-player/celluloid]
+always-autohide-cursor=true
+always-show-title-buttons=true
+always-use-floating-controls=true
+always-use-floating-header-bar=true
+draggable-video-area-enable=true
+mpv-config-enable=true
+mpv-config-file='file:///etc/skel/.config/mpv/mpv.conf'
+present-window-on-file-open=true
+
+[io/github/celluloid-player/celluloid/window-state]
+loop-playlist=false
+maximized=false
+
+[io/github/realmazharhussain/GdmSettings]
+never-applied=false
+
+[io/github/realmazharhussain/GdmSettings/appearance]
+background-image='/usr/share/wallpapers/big-wallpaper-login.jpg'
+background-type='image'
+cursor-theme='Adwaita'
+icon-theme='Adwaita'
+shell-theme='Big Transparent'
+
+[io/github/realmazharhussain/GdmSettings/fonts]
+antialiasing='grayscale'
+font='Noto Sans Nerd Font Medium 11'
+hinting='slight'
+scaling-factor=1.0
+
+[io/github/realmazharhussain/GdmSettings/misc]
+disable-restart-buttons=false
+disable-user-list=false
+enable-logo=true
+enable-welcome-message=true
+logo='/etc/gdm-logo.png'
+welcome-message='BigCommunity'
+
+[io/github/realmazharhussain/GdmSettings/mouse]
+natural-scrolling=false
+pointer-acceleration='flat'
+speed=0.0
+
+[io/github/realmazharhussain/GdmSettings/night-light]
+enabled=false
+end-hour=6
+end-minute=0
+schedule-automatic=true
+start-hour=20
+start-minute=0
+temperature=uint32 2700
+
+[io/github/realmazharhussain/GdmSettings/power]
+auto-power-saver=true
+blank-screen=true
+dim-screen=true
+idle-delay=5.0
+power-button-action='suspend'
+suspend-on-ac=true
+suspend-on-ac-delay=20.0
+suspend-on-battery=true
+suspend-on-battery-delay=20.0
+
+[io/github/realmazharhussain/GdmSettings/sound]
+event-sounds=true
+feedback-sounds=false
+over-amplification=true
+theme='freedesktop'
+
+[io/github/realmazharhussain/GdmSettings/top-bar]
+show-battery-percentage=false
+show-seconds=false
+show-weekday=true
+time-format='24h'
+
+[io/github/realmazharhussain/GdmSettings/touchpad]
+disable-while-typing=true
+natural-scrolling=true
+speed=0.0
+tap-to-click=false
+two-finger-scrolling=true
+
+[io/github/realmazharhussain/GdmSettings/window-state]
+height=uint32 701
+last-visited-page='misc'
+width=uint32 1272
+
+[net/launchpad/plank/docks/dock1]
+dock-items=['thunar.dockitem', 'brave-browser.dockitem', 'org.xfce.mousepad.dockitem', 'galculator.dockitem', 'xfce4-terminal.dockitem', 'trash.dockitem', 'desktop.dockitem']
+icon-size=38
+theme='Azeny Small'
+zoom-enabled=true
+zoom-percent=140
+
+[org/blueberry]
+obex-enabled=false
+
+[org/blueman/general]
+window-properties=[500, 350, 411, 238]
+
+[org/gtk/gtk4/settings/color-chooser]
+custom-colors=[(0.0, 0.0, 0.0, 0.0), (0.0, 0.0, 0.0, 0.4466666579246521), (0.12941177189350128, 0.14117647707462311, 0.18039216101169586, 0.43666666746139526), (0.10980392247438431, 0.11764705926179886, 0.14509804546833038, 0.88999998569488525), (0.10902222245931625, 0.11770939081907272, 0.14666666090488434, 0.88999998569488525), (0.076444447040557861, 0.089572645723819733, 0.13333334028720856, 0.89666664600372314), (0.12941177189350128, 0.14117647707462311, 0.18039216101169586, 0.94999998807907104), (0.12941177189350128, 0.14117647707462311, 0.18039216101169586, 0.87666666507720947)]
+selected-color=(true, 0.0, 0.0, 0.0, 1.0)
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=154
+sort-column='modified'
+sort-directories-first=true
+sort-order='descending'
+type-format='category'
+view-type='list'
+window-size=(1279, 588)
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.16078431372549015, 0.56862745098039214, 0.78823529411764703, 1.0), (0.98431372549019602, 0.72156862745098038, 0.42352941176470588, 1.0)]
+selected-color=(true, 0.16078431372549015, 0.56862745098039214, 0.78823529411764703, 1.0)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='filename-entry'
+show-hidden=true
+show-size-column=true
+show-type-column=true
+sidebar-width=148
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(305, 339)
+window-size=(1310, 327)
+
+[org/mate/calc]
+button-mode='basic'
+show-history=false
+source-units='degree'
+target-units='radian'
+
+[org/x/editor/plugins]
+active-plugins=['time', 'textsize', 'spell', 'sort', 'open-uri-context-menu', 'modelines', 'joinlines', 'filebrowser', 'docinfo', 'bracketcompletion']
+
+[org/x/editor/plugins/filebrowser/on-load]
+root='file:///'
+tree-view=true
+virtual-root='file:///usr/bin'
+
+[org/x/editor/preferences/editor]
+bracket-matching=true
+display-line-numbers=true
+highlight-current-line=true
+scheme='solarized-dark'
+
+[org/x/editor/preferences/ui]
+statusbar-visible=true
+
+[org/x/editor/state/window]
+bottom-panel-size=140
+side-panel-active-page=1541982214
+side-panel-size=200
+size=(1280, 721)
+state=4
+
+[org/x/pix/browser]
+fullscreen-sidebar='hidden'
+fullscreen-thumbnails-visible=false
+maximized=false
+sidebar-sections=['GthFileProperties:expanded', 'GthFileComment:expanded', 'GthFileDetails:expanded', 'GthImageHistogram:expanded']
+sidebar-visible=true
+sort-inverse=false
+sort-type='file::mtime'
+startup-current-file='file:///usr/share/backgrounds/community/animal-owl3.jpg'
+startup-location='file:///usr/share/backgrounds/community'
+statusbar-visible=true
+viewer-sidebar='hidden'
+
+[org/x/pix/data-migration]
+catalogs-2-10=true
+
+[org/x/pix/general]
+active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 'comments', 'contact_sheet', 'convert_format', 'desktop_background', 'edit_metadata', 'exiv2_tools', 'file_manager', 'find_duplicates', 'flicker', 'gstreamer_tools', 'gstreamer_utils', 'image_print', 'image_rotation', 'importer', 'jpeg_utils', 'list_tools', 'oauth', 'photo_importer', 'raw_files', 'red_eye_removal', 'rename_series', 'resize_images', 'search', 'selections', 'slideshow', 'terminal', 'webalbums']
+
+[system/proxy]
+mode='none'
