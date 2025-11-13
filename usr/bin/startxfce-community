@@ -38,9 +38,6 @@ else
     logger "sync-gnome-theme-to-qt.sh not found"
 fi
 
-# Set dark theme preference to fix mixed themes issue
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-
 # Force language
 if [ "$LANGUAGE" = "" ]; then
     [[ -z $LANGUAGE ]] && export LANGUAGE=$LANG
@@ -215,6 +212,9 @@ main
 
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
+    # Set dark theme to xfconf
+    xfconf-query -c xsettings -p /Net/ThemeName -s "adw-gtk3-dark"
+
     # Get the correct path for the Desktop, regardless of language
     homeBigDesk=$(xdg-user-dir DESKTOP)
     cfile='calamares-biglinux.desktop'
