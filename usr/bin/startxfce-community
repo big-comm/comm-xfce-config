@@ -212,9 +212,6 @@ main
 
 ### Execute in LiveCD
 if [ -e /usr/bin/startbiglive ]; then
-    # Set dark theme to xfconf
-    xfconf-query -c xsettings -p /Net/ThemeName -s "adw-gtk3-dark"
-
     # Get the correct path for the Desktop, regardless of language
     homeBigDesk=$(xdg-user-dir DESKTOP)
     cfile='calamares-biglinux.desktop'
