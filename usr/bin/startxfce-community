@@ -38,6 +38,9 @@ else
     logger "sync-gnome-theme-to-qt.sh not found"
 fi
 
+# Set dark theme preference to fix mixed themes issue
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
 # Force language
 if [ "$LANGUAGE" = "" ]; then
     [[ -z $LANGUAGE ]] && export LANGUAGE=$LANG
