@@ -217,6 +217,3 @@ active-extensions=['23hq', 'bookmarks', 'burn_disc', 'catalogs', 'change_date', 
 
 [system/proxy]
 mode='none'
-
-[org/gnome/desktop/interface]
-color-scheme='prefer-dark'

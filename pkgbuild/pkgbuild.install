@@ -13,7 +13,7 @@ reset="\e[0m"                # Reset text formatting
 # Print status messages
 printMsg() {
     local message=$1
-    echo -e "${blueDark}[${lightBlue}comm-xfce-config${blueDark}]${reset} ${cyan}→${reset} ${white}${message}${reset}"
+    echo -e "$blueDark[${lightBlue}comm-xfce-config$blueDark]$reset $cyan→$reset $white$message$reset"
 }
 
 # Function executed before package installation
@@ -28,13 +28,13 @@ printMsg() {
 
 # Function executed after package installation
 post_install() {
-    printMsg "Configurando LightDM para usar o Slick Greeter..."
+    printMsg "Configuring LightDM to use Slick Greeter..."
     if grep -q '^greeter-session=lightdm-slick-greeter$' /etc/lightdm/lightdm.conf; then
-        printMsg "LightDM já está configurado para usar o Slick Greeter"
+        printMsg "LightDM is already configured to use Slick Greeter"
         return 0
     fi
     sed -i 's/^greeter-session=.*$/greeter-session=lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
-    printMsg "LightDM configurado com sucesso para usar o Slick Greeter"
+    printMsg "LightDM successfully configured to use Slick Greeter"
 }
 
 # Function executed before package upgrade
@@ -46,7 +46,7 @@ post_install() {
 
 # Function executed after package upgrade
 post_upgrade() {
-    printMsg "Atualizando configurações após upgrade..."
+    printMsg "Updating settings after upgrade..."
     post_install
 }
 
