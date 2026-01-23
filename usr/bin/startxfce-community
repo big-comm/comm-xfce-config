@@ -9,7 +9,7 @@ lspci | grep -qi "vga.*nvidia" && {
 
 # Defining the default visual style to be used in applications that use Qt
 [[ -z $QT_STYLE_OVERRIDE ]] && export QT_STYLE_OVERRIDE="kvantum"
-[[ -z $QT_QPA_PLATFORMTHEME ]] && export QT_QPA_PLATFORMTHEME="kde"
+[[ -z $QT_QPA_PLATFORMTHEME ]] && export QT_QPA_PLATFORMTHEME="xdg-desktop-portal"
 [[ -z $QT_WAYLAND_DECORATION ]] && export QT_WAYLAND_DECORATION="adwaita"
 
 # Render loop basic if using software render and change GTK4 from vulkan to ngl
@@ -70,8 +70,25 @@ if [ ! -f "$controlFile" ]; then
     /usr/local/bin/thunar-actions-translated.sh
 fi
 
+# Configure JamesDSP audio enhancement (First Boot Only)
+# Only enables if user activated JamesDSP in live mode during installation
+#-------------------------------------------------------------------------------
+if [[ -e "$HOME/.first-boot" ]]; then
+    # Check if user did NOT enable JamesDSP during live session
+    if [[ ! -e /etc/big-default-config/jamesdsp && -e "$HOME/.config/jamesdsp/application.conf" ]]; then
+        sed -i "s|AutoStartEnabled=true|AutoStartEnabled=false|g" "$HOME/.config/jamesdsp/application.conf"
+        logger "JamesDSP autostart disabled on first boot (user did not activate during installation)"
+    fi
+    # Remove first boot marker
+    rm -f "$HOME/.first-boot"
+    logger "First boot configuration completed"
+fi
+# NOTE: JamesDSP live mode configuration is handled by biglinux-livecd
 
-# --- START Configuration dconf and mimeapps ---
+
+#-------------------------------------------------------------------------------
+# # --- START Configuration dconf and mimeapps
+#-------------------------------------------------------------------------------
 dconf_dir="$HOME/.config/dconf"
 mimeapps_dir="$HOME/.config"
 log_file="/tmp/dconf-switch-xfce.log"
@@ -160,7 +177,9 @@ log_message "XFCE session configuration completed"
 # --- END Configuration dconf and mimeapps ---
 
 
-### Execute in LiveCD
+#-------------------------------------------------------------------------------
+# ### Execute in LiveCD
+#-------------------------------------------------------------------------------
 if [ -e /usr/bin/startbiglive ]; then
     # Get the correct path for the Desktop, regardless of language
     homeBigDesk=$(xdg-user-dir DESKTOP)

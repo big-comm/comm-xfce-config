@@ -139,7 +139,7 @@ cursor-theme='Bibata-Modern-Classic'
 font-name='Noto Sans Nerd Font Medium 11'
 gtk-key-theme=''
 gtk-theme='adw-gtk3-dark'
-icon-theme='bigicons-papient'
+icon-theme='bigicons-papient-dark'
 
 [org/gnome/desktop/peripherals/mouse]
 double-click=400
