@@ -1,6 +1,10 @@
 #!/bin/sh
 
-# Add startxfce-community in startxfce4
-if ! grep -q startxfce-community /usr/bin/startxfce4; then
-    sed -i '/exec \$prog/i . /usr/bin/startxfce-community' /usr/bin/startxfce4
-fi
+# Replace Exec= in X11 session .desktop file for XFCE
+sed -i 's|^Exec=.*|Exec=/usr/bin/startxfce-community|' /usr/share/xsessions/xfce.desktop 2>/dev/null
+
+# Remove any previous injection of startxfce-community from startxfce4 (legacy cleanup)
+sed -i '/\. \/usr\/bin\/startxfce-community/d' /usr/bin/startxfce4 2>/dev/null
+
+# Increase DefaultRestartSec to avoid race conditions with session startup scripts
+sed -i 's|#DefaultRestartSec=100ms|DefaultRestartSec=1000ms|g;s|#DefaultStartLimitBurst=5|DefaultStartLimitBurst=10|g' /etc/systemd/user.conf 2>/dev/null

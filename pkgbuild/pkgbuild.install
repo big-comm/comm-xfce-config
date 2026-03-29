@@ -28,6 +28,12 @@ printMsg() {
 
 # Function executed after package installation
 post_install() {
+    # Set up XFCE session integration
+    if [ -f "/usr/share/libalpm/scripts/startxfce-community" ]; then
+        printMsg "Setting up XFCE session integration..."
+        /usr/share/libalpm/scripts/startxfce-community
+    fi
+
     printMsg "Configuring LightDM to use Slick Greeter..."
     if grep -q '^greeter-session=lightdm-slick-greeter$' /etc/lightdm/lightdm.conf; then
         printMsg "LightDM is already configured to use Slick Greeter"

@@ -2,10 +2,10 @@
 Type = Path
 Operation = Install
 Operation = Upgrade
-Target = usr/bin/startxfce4
+Target = usr/share/xsessions/xfce.desktop
 Target = usr/bin/startxfce-community
 
 [Action]
-Description = Add startxfce-community in startxfce4
+Description = Replace startxfce4 with startxfce-community in xfce.desktop
 When = PostTransaction
 Exec = /usr/share/libalpm/scripts/startxfce-community
