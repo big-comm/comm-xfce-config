@@ -136,10 +136,11 @@ cursor-blink=true
 cursor-blink-time=1200
 cursor-size=0
 cursor-theme='Bibata-Modern-Classic'
-font-name='Noto Sans Nerd Font Medium 11'
+font-name='Noto Sans Nerd Font Medium 10'
 gtk-key-theme=''
 gtk-theme='adw-gtk3-dark'
 icon-theme='bigicons-papient-dark'
+monospace-font-name='Noto Mono Nerd Font Medium 11'
 
 [org/gnome/desktop/peripherals/mouse]
 double-click=400
