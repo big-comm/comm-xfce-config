@@ -16,10 +16,9 @@ else
 fi
 
 # Configure first boot settings (theme)
-# MUST run before sync-gnome-theme-to-qt.sh → that script calls xfconf-query,
-# which activates xfconfd via D-Bus. xfconfd caches XML values on startup.
-# If XMLs still have dark defaults when xfconfd starts, the cached dark values
-# propagate to dconf via xfsettingsd SyncThemes, overriding the sed changes.
+# xfconfd may already be running (activated by sync-gnome-theme-to-qt.service
+# via WantedBy=default.target). Kill it after modifying XMLs to force reload.
+# Also write dconf directly to avoid race with dconf-sync-monitor dump.
 #-------------------------------------------------------------------------------
 themeFile="/etc/big-default-config/theme"
 if [[ -e "$themeFile" && ! -e "$HOME/.big_desktop_theme" ]]; then
@@ -30,7 +29,7 @@ if [[ -e "$themeFile" && ! -e "$HOME/.big_desktop_theme" ]]; then
     if [[ "$theme" == "light" && -e "$settings_file" ]]; then
         logger "Applying light theme on first boot"
 
-        # Update xfconf settings FIRST (before any xfconf-query call activates xfconfd)
+        # Update xfconf XML files
         xsettings_file="$HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml"
         if [[ -e "$xsettings_file" ]]; then
             sed -i 's|value="adw-gtk3-dark"|value="adw-gtk3"|g' "$xsettings_file"
@@ -44,10 +43,20 @@ if [[ -e "$themeFile" && ! -e "$HOME/.big_desktop_theme" ]]; then
             logger "Updated xfconf xfwm4.xml for light theme"
         fi
 
-        # Update dconf settings file
+        # Kill xfconfd to discard stale cache from pre-sed XML reads
+        pkill -u "$USER" xfconfd 2>/dev/null
+        logger "Killed xfconfd to force XML reload"
+
+        # Update dconf settings file (for dconf load later)
         sed -i "s|color-scheme='prefer-dark'|color-scheme='default'|g" "$settings_file"
         sed -i "s|gtk-theme='adw-gtk3-dark'|gtk-theme='adw-gtk3'|g" "$settings_file"
         sed -i "s|icon-theme='bigicons-papient-dark'|icon-theme='bigicons-papient-light'|g" "$settings_file"
+
+        # Write dconf directly → survives dconf-sync-monitor initial dump race
+        dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3'"
+        dconf write /org/gnome/desktop/interface/icon-theme "'bigicons-papient-light'"
+        dconf write /org/gnome/desktop/interface/color-scheme "'default'"
+        logger "Wrote light theme values directly to dconf"
     fi
 
     # JamesDSP configuration
