@@ -71,7 +71,7 @@
       <property name="position-categories-horizontal" type="bool" value="false"/>
       <property name="position-profile-alternate" type="bool" value="false"/>
       <property name="profile-shape" type="int" value="0"/>
-      <property name="command-lockscreen" type="string" value="light-locker-command -l"/>
+      <property name="command-lockscreen" type="string" value="xfce4-screensaver-command -l"/>
     </property>
     <property name="plugin-2" type="string" value="docklike"/>
     <property name="plugin-3" type="string" value="pulseaudio">

@@ -297,5 +297,8 @@ if [ -e /usr/bin/startbiglive ]; then
     xfconf-query -c xfce4-panel -p $(xfconf-query -c xfce4-panel -l | grep show-command-lockscreen) -s false
 fi
 
+# Kill light-locker if present → conflicts with xfce4-screensaver, causes unwanted screen blanking
+pkill -x light-locker 2>/dev/null
+
 # Execute startxfce4, passing through any arguments
 exec /usr/bin/startxfce4 "$@"
