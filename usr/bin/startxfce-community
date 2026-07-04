@@ -8,12 +8,51 @@
 # Apps in electron use wayland
 [[ -z $ELECTRON_OZONE_PLATFORM_HINT ]] && export ELECTRON_OZONE_PLATFORM_HINT="auto"
 
+# XFCE must own the environment before dconf and GTK/Qt sync runs.
+export XDG_MENU_PREFIX=xfce-
+export DESKTOP_SESSION=xfce
+export XDG_SESSION_DESKTOP=xfce
+export GDMSESSION=xfce
+export XDG_CURRENT_DESKTOP=XFCE
+
 # If using mesa amber force cairo renderer
 if compgen -G /var/lib/pacman/local/mesa-amber-* || systemd-detect-virt -q; then
     [[ -z $GSK_RENDERER ]] && export GSK_RENDERER="cairo"
 else
     [[ -z $GSK_RENDERER ]] && export GSK_RENDERER="ngl"
 fi
+
+unset ADW_DEBUG_COLOR_SCHEME
+
+start_graphical_session_bridge() {
+    if command -v systemctl >/dev/null 2>&1; then
+        systemctl --user import-environment \
+            DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP DESKTOP_SESSION XDG_SESSION_DESKTOP XDG_SESSION_TYPE \
+            2>/dev/null || true
+        systemctl --user start biglinux-graphical-session.target 2>/dev/null || true
+    fi
+}
+
+sync_theme_to_qt() {
+    if [ -f "/usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh" ]; then
+        for i in {1..3}; do
+            if /usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh; then
+                logger "sync-gnome-theme-to-qt.sh executed successfully"
+                return 0
+            else
+                logger "Failed to execute sync-gnome-theme-to-qt.sh, attempt $i"
+                sleep 0.5
+            fi
+        done
+    else
+        logger "sync-gnome-theme-to-qt.sh not found"
+    fi
+
+    return 1
+}
+
+start_graphical_session_bridge
+systemctl --user unset-environment ADW_DEBUG_COLOR_SCHEME 2>/dev/null || true
 
 # Configure first boot settings (theme)
 # xfconfd may already be running (activated by sync-gnome-theme-to-qt.service
@@ -52,7 +91,7 @@ if [[ -e "$themeFile" && ! -e "$HOME/.big_desktop_theme" ]]; then
         sed -i "s|gtk-theme='adw-gtk3-dark'|gtk-theme='adw-gtk3'|g" "$settings_file"
         sed -i "s|icon-theme='bigicons-papient-dark'|icon-theme='bigicons-papient-light'|g" "$settings_file"
 
-        # Write dconf directly → survives dconf-sync-monitor initial dump race
+        # Write dconf directly to survive dconf-sync-monitor initial dump race
         dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3'"
         dconf write /org/gnome/desktop/interface/icon-theme "'bigicons-papient-light'"
         dconf write /org/gnome/desktop/interface/color-scheme "'default'"
@@ -77,20 +116,7 @@ if [[ -e "$themeFile" && ! -e "$HOME/.big_desktop_theme" ]]; then
 fi
 
 # Check system theme to apply if the QT theme is clade or dark
-if [ -f "/usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh" ]; then
-    # Tenta executar 3 vezes com intervalo de 1 segundo
-    for i in {1..3}; do
-        if /usr/share/sync-kde-and-gtk-places/sync-gnome-theme-to-qt.sh; then
-            logger "sync-gnome-theme-to-qt.sh executed successfully"
-            break
-        else
-            logger "Failed to execute sync-gnome-theme-to-qt.sh, attempt $i"
-            sleep 0.5
-        fi
-    done
-else
-    logger "sync-gnome-theme-to-qt.sh not found"
-fi
+sync_theme_to_qt
 
 # Force language
 if [ "$LANGUAGE" = "" ]; then
@@ -245,6 +271,8 @@ load_dconf_config
 # Start monitoring services
 start_sync_services
 
+sync_theme_to_qt
+
 log_message "XFCE session configuration completed"
 # --- END Configuration dconf and mimeapps ---
 
@@ -253,13 +281,6 @@ log_message "XFCE session configuration completed"
 # ### Execute in LiveCD
 #-------------------------------------------------------------------------------
 if [ -e /usr/bin/startbiglive ]; then
-    # Set XFCE environment variables
-    export XDG_MENU_PREFIX=xfce-
-    export DESKTOP_SESSION=xfce
-    export XDG_SESSION_DESKTOP=xfce
-    export GDMSESSION=xfce
-    export XDG_CURRENT_DESKTOP=XFCE
-
     # Enables basic, unencrypted password storage in Chromium-based browsers
     sudo sed -i '/--password-store=basic/!s/\(exec \/usr\/lib\/brave-browser\/brave "$@" $USER_FLAGS\)$/\1 --password-store=basic/' /usr/bin/brave
 
