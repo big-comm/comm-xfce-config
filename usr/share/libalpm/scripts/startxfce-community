@@ -6,5 +6,12 @@ sed -i 's|^Exec=.*|Exec=/usr/bin/startxfce-community|' /usr/share/xsessions/xfce
 # Remove any previous injection of startxfce-community from startxfce4 (legacy cleanup)
 sed -i '/\. \/usr\/bin\/startxfce-community/d' /usr/bin/startxfce4 2>/dev/null
 
-# Increase DefaultRestartSec to avoid race conditions with session startup scripts
-sed -i 's|#DefaultRestartSec=100ms|DefaultRestartSec=1000ms|g;s|#DefaultStartLimitBurst=5|DefaultStartLimitBurst=10|g' /etc/systemd/user.conf 2>/dev/null
+# Restore the systemd defaults we used to relax here.
+#
+# The old values (DefaultRestartSec=1000ms, DefaultStartLimitBurst=10) were meant to
+# avoid a race with session startup scripts, but they disabled the restart rate limit
+# for every user service on the system: 10 restarts at 1s apiece span ~12.5s, which
+# never fits the 10s window, so a service that keeps failing restarts forever instead
+# of being stopped. That is what turned the JamesDSP autostart conflict into a loop
+# of tens of thousands of restarts.
+sed -i 's|^DefaultRestartSec=1000ms|#DefaultRestartSec=100ms|;s|^DefaultStartLimitBurst=10|#DefaultStartLimitBurst=5|' /etc/systemd/user.conf 2>/dev/null
