@@ -33,7 +33,7 @@
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-1" type="string" value="whiskermenu">
-      <property name="button-icon" type="string" value="comm-menu"/>
+      <property name="button-icon" type="string" value="bigcommunity-menu-symbolic"/>
       <property name="button-single-row" type="bool" value="false"/>
       <property name="command-switchuser" type="string" value="dm-tool switch-to-greeter"/>
       <property name="show-command-lockscreen" type="bool" value="false"/>
